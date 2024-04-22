@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #13131A;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.clearday {
+  background-image: url(/clear-day.png);
+}
+.fewcloudsday {
+  background-image: url(/few-day.png);
+}
+.cloudsday {
+  background-image: url(/clouds-day.png);
+}
+.rainday {
+  background-image: url(/rain-day.png);
+}
+.stormday {
+  background-image: url(/storm-day.png);
+}
+.clearnight {
+  background-image: url(/clear-night.png);
+}
+.fewcloudsnight {
+  background-image: url(/few-night.png);
+}
+.cloudsnight {
+  background-image: url(/clouds-night.png);
+}
+.rainnight {
+  background-image: url(/rain-night.png);
+}
+.stormnight {
+  background-image: url(/storm-night.png);
+}
+
+.border-gradient-left {
+  border-image: linear-gradient(to bottom, #3B3B54 0%, #8FB2F5 100%);
+  border-image-slice: 1;
+  border-left: 1px solid transparent;  
+}
