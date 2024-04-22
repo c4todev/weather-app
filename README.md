@@ -2,6 +2,8 @@
 
 This weather application is built with React, utilizing Vite as the build tool and styled using Tailwind CSS. It fetches real-time weather data from the OpenWeatherMap API and supports features like geolocation, city search, and responsive design.
 
+Weather App: https://c4todev.github.io/weather-app/
+
 ## Features
 
 - Real-time weather updates.
