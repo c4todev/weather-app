@@ -20,6 +20,7 @@ export default function Input({
   setWeatherPage,
   setCurrentHourly,
   setCurrentWeather,
+  setCurrentTimeZone,
   setCurrentTimeZoneOffset,
 }) {
   // eslint-disable-next-line no-unused-vars
@@ -57,7 +58,7 @@ export default function Input({
   const fetchCoordWeather = async (latitude, longitude) => {
     try {
       setLoading(true);
-      const cityCoordURL = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${apiKey}`;
+      const cityCoordURL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${apiKey}`;
       const response = await axios.get(cityCoordURL);
       const cityName = `${response.data[0].name}, ${response.data[0].country}`;
       setValue(cityName);
@@ -65,13 +66,14 @@ export default function Input({
         const fetchWeatherDataURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
         const weatherResponse = await axios.get(fetchWeatherDataURL);
         const timeZoneOffset = weatherResponse.data.timezone_offset;
+        const timeZone = weatherResponse.data.timezone;
+        setCurrentTimeZone(timeZone);
         setCurrentTimeZoneOffset(timeZoneOffset);
         setCurrentWeather(weatherResponse.data.daily[0]);
         const forecastData = weatherResponse.data.daily;
         setForecast(forecastData);
         const hourlyData = weatherResponse.data.hourly;
         setHourly(hourlyData);
-
         const currentHourlyData = hourlyData[0];
         setCurrentHourly(currentHourlyData);
         setWeatherPage(true);
@@ -182,5 +184,6 @@ Input.propTypes = {
   setHourly: PropTypes.func.isRequired,
   setError: PropTypes.func.isRequired,
   setCurrentHourly: PropTypes.func.isRequired,
+  setCurrentTimeZone: PropTypes.func.isRequired,
   setCurrentTimeZoneOffset: PropTypes.func,
 };

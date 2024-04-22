@@ -20,6 +20,7 @@ function App() {
       data: JSON.parse(localStorage.getItem(key)),
     }))
   ); // Kaydedilmiş şehirlerin listesi
+  console.log(currentTimeZone);
 
   return (
     <div className="h-screen w-screen overflow-x-hidden flex items-center bg-base-900 bg-pattern bg-center bg-cover bg-no-repeat sm:bg-contain sm:bg-center hide-scrollbar">

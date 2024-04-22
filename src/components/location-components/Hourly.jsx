@@ -70,7 +70,7 @@ export default function Hourly({
           weatherImg = weather[0].main.toLocaleLowerCase() + "-night";
         }
 
-        const imgSrc = `/${weatherImg}.svg`;
+        const imgSrc = `${weatherImg}.svg`;
         return (
           <div
             key={index}

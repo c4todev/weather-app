@@ -105,7 +105,7 @@ export default function LocationPage({
   const rain = (currentHourly.pop * 100).toFixed();
   const windSpeed = currentHourly.wind_speed.toFixed();
   const uv = currentHourly.uvi.toFixed();
-  const currentImg = `/${currentHourly.weather[0].main.toLowerCase()}-${dayOrNight}.svg`;
+  const currentImg = `${currentHourly.weather[0].main.toLowerCase()}-${dayOrNight}.svg`;
   const temp = currentHourly.temp.toFixed();
   const weatherImg = currentHourly.weather[0].main.replace(/ /g, "");
   const bgImage = `${weatherImg.toLowerCase()}${dayOrNight}`;
@@ -113,7 +113,7 @@ export default function LocationPage({
   const handleSaveWeather = () => {
     const savedCityWeather = {
       day_temp: currentWeather.temp.day.toFixed(),
-      weatherImg: `/${currentWeather.weather[0].main.toLowerCase()}-day.svg`,
+      weatherImg: `${currentWeather.weather[0].main.toLowerCase()}-day.svg`,
       bgImage: bgImage,
       isSaved: true,
     };
@@ -256,7 +256,7 @@ export default function LocationPage({
             dayOrNight = "night";
           }
           const iconOfDay = weather[0].main.toLocaleLowerCase();
-          const forecastImg = `/${iconOfDay}-${dayOrNight}.svg`;
+          const forecastImg = `${iconOfDay}-${dayOrNight}.svg`;
           const date = new Date(dt * 1000);
           const dayOfWeek = date.toLocaleDateString([], {
             weekday: "long",

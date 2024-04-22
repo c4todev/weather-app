@@ -35,7 +35,7 @@ export default function Main({
         throw new Error("City name is required.");
       }
       setLoading(true);
-      const cityCoordURL = `http://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=5&appid=${apiKey}`;
+      const cityCoordURL = `https://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=5&appid=${apiKey}`;
       const response = await axios.get(cityCoordURL);
       setValue(`${response.data[0].name}, ${response.data[0].country}`);
       const latitude = response.data[0]?.lat;
@@ -120,6 +120,7 @@ export default function Main({
           setError={setError}
           fetchWeather={fetchWeather}
           currentHourly={currentHourly}
+          setCurrentTimeZone={setCurrentTimeZone}
           setValue={setValue}
           setHourly={setHourly}
           setLoading={setLoading}
